@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMMAPA Hub</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #f4f4f4;
+        }
+        
+        header {
+            background-color: #004AAD;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: #003580;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            height: 400px;
+            margin: auto;
+            overflow: hidden;
+        }
+        
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .content {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .button {
+            padding: 1rem 2rem;
+            background-color: #004AAD;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .button:hover {
+            background-color: #0066cc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Selamat Datang di IMMAPA</h1>
+        <p>Ikatan Mahasiswa Maluku Papua</p>
+    </header>
+
+    <nav>
+        <a href="/">Beranda</a>
+        <a href="/anggota">Anggota</a>
+        <a href="/pengurus">Pengurus</a>
+        <a href="/kegiatan">Kegiatan</a>
+        <a href="/dokumentasi">Dokumentasi</a>
+    </nav>
+
+    <div class="slideshow-container">
+        <div class="slide">
+            <img src="assets/slide1.jpg" alt="Foto Kegiatan 1">
+        </div>
+        <div class="slide">
+            <img src="assets/slide2.jpg" alt="Foto Kegiatan 2">
+        </div>
+        <div class="slide">
+            <img src="assets/slide3.jpg" alt="Foto Kegiatan 3">
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Manajemen Data Anggota</h2>
+        <a href="/anggota" class="button">Kelola Anggota</a>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.getElementsByClassName("slide");
+
+        function showSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000);
+        }
+
+        showSlides();
+    </script>
+
+</body>
+
+</html>
