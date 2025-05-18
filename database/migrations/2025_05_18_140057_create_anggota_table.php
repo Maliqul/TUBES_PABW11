@@ -9,17 +9,19 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-public function up()
+public function up(): void
 {
     Schema::create('anggota', function (Blueprint $table) {
         $table->id();
         $table->string('nama');
         $table->string('nim')->unique();
-        $table->string('jabatan')->nullable(); // jika anggota punya jabatan tertentu
-        $table->foreignId('divisi_id')->nullable()->constrained('divisi')->onDelete('set null');
+        $table->string('jurusan');
+        $table->string('angkatan');
+        $table->string('foto')->nullable(); // untuk path foto jika ada
         $table->timestamps();
     });
 }
+
 
     /**
      * Reverse the migrations.

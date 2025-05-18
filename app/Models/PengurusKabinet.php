@@ -5,7 +5,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class PengurusKabinet extends Model
 {
-protected $fillable = ['nama', 'jabatan', 'anggota_id'];
+    protected $table = 'pengurus_kabinet';
+    protected $fillable = ['nama', 'jabatan', 'anggota_id'];
 
     public function anggota()
         {

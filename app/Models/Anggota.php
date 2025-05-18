@@ -4,12 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Anggota extends Model
-{
-    protected $fillable = ['nama', 'nim', 'jabatan', 'divisi_id'];
 
-public function divisi()
+class Anggota extends Model
+    
 {
-    return $this->belongsTo(Divisi::class);
-}
+    protected $table = 'anggota';
+    protected $fillable = [
+    'nama',
+    'nim',
+    'jurusan',
+    'angkatan',
+    'jabatan',
+    'divisi_id',
+     'foto'
+];
+
+
+    public function divisi()
+    {
+        return $this->belongsTo(Divisi::class);
+    }
 }

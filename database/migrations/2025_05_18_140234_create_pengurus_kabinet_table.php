@@ -9,12 +9,13 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-public function up()
+public function up(): void
 {
     Schema::create('pengurus_kabinet', function (Blueprint $table) {
         $table->id();
         $table->string('nama');
         $table->string('jabatan');
+        $table->string('foto')->nullable(); // kalau ingin simpan path foto
         $table->foreignId('anggota_id')->nullable()->constrained('anggota')->onDelete('set null');
         $table->timestamps();
     });

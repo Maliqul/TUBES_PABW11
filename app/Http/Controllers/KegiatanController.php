@@ -12,19 +12,25 @@ class KegiatanController extends Controller
         return Kegiatan::all();
     }
 
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'id' => 'nullable',
-            'nama_kegiatan' => 'required',
-            'deskripsi' => 'nullable',
-            'tanggal' => 'required|date',
-            'divisi_id' => 'nullable|exists:divisi,id',
-            'timestamp' => 'nullable',
-        ]);
+   public function store(Request $request)
+{
+    $validated = $request->validate([
+        'nama_kegiatan' => 'required',
+        'deskripsi' => 'nullable',
+        'tanggal' => 'required|date',
+        'divisi_id' => 'nullable|exists:divisi,id',
+        'timestamp' => 'nullable',
+    ]);
 
-        return Kegiatan::create($validated);
-    }
+    $kegiatan = Kegiatan::create($validated);
+
+    // Debug respons
+    return response()->json([
+        'success' => $kegiatan ? true : false,
+        'data' => $kegiatan,
+    ]);
+}
+
 
     public function show($id)
     {
